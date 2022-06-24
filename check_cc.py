@@ -3,7 +3,7 @@ import cv2
 import random 
 
 from convex_collide import collide
-
+import time
 
 def get_tri(size =50):
     return (np.random.randint(size,size=(3,2))).astype(np.int32)
@@ -20,6 +20,9 @@ image = np.zeros((768,1366,3),dtype=np.uint8)
 
 
 triangles = []
+
+
+t = time.perf_counter()
 
 for i in range(10000):
 
@@ -45,7 +48,7 @@ for i in range(10000):
 
 cv2.imwrite('triangles.png',image)
 
-
+print(time.perf_counter()-t)
 print(len(triangles))
 
 
